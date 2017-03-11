@@ -4,7 +4,7 @@
   "description": "User can get the image URLs, alt text and page urls for a set of images relating to a given search string.",
   "main": "app.js",
   "scripts": {
-    "start": "mongod --dbpath ./db & node app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
