@@ -68,14 +68,12 @@ app.get('/add/*', function(req, res) {
     var url = req.path.substr(5);
     console.log(url);
     scraper(url, function(err, metadata) {
-        if (err) {
+        if (err || !urls) {
             return res.status(500).end('An error occurred');
         }
-        
         var urls = metadata.jsonLd[0].itemListElement;
         
         async.each(urls, function(url, cb) {
-            var dest = path.join(__dirname, 'thumbs').toString();
             
             scraper(url.url, function(err, metadata) {
                 if (err) {
@@ -88,7 +86,7 @@ app.get('/add/*', function(req, res) {
                     }
                     mongo.connect(process.env.MONGO_URI, function(err, db) {
                         if (err) {
-                            db.close()
+                            db.close();
                             return cb(err);
                         }
                         
