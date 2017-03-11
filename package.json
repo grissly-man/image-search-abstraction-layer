@@ -19,7 +19,12 @@
   "homepage": "https://github.com/logandhi/image-search-abstraction-layer#readme",
   "dependencies": {
     "crypto": "0.0.3",
+    "express": "^4.15.2",
     "html-metadata": "^1.6.3",
-    "sharp": "^0.17.2"
+    "mongo": "^0.1.0",
+    "path": "^0.12.7",
+    "scraper": "0.0.9",
+    "sharp": "^0.17.2",
+    "url": "^0.11.0"
   }
 }
