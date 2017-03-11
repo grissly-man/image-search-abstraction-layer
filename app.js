@@ -99,7 +99,7 @@ app.get('/add/*', function(req, res) {
                         }, function(err, data) {
                             db.close();
                             return cb(err, data);
-                        })
+                        });
                     });
                 });
             });
@@ -112,4 +112,6 @@ app.get('/add/*', function(req, res) {
         });
     });
 });
-app.listen(process.env.PORT || 8080)
+
+app.use('/', express.static(path.join(__dirname, 'out', 'image-search-abstraction-layer', '1.0.0')));
+app.listen(process.env.PORT || 8080);

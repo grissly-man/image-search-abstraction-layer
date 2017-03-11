@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+    <h3>image-search-abstraction-layer 1.0.0</h3>
+    <ul>
+        <li><b>User Story:</b> I can get the image URLs, alt text and page urls for a set of images relating to a given search string.</li>
+        <li><b>User Story:</b> I can paginate through the responses by adding a ?offset=2 parameter to the URL.</li>
+        <li><b>User Story:</b> I can get a list of the most recently submitted search strings.</li>
+    </ul>
+    <h3>API Usage</h3>
+    <h4>/add/{url}</h4>
+    <caption>Scrapes a (Pinterest Board) <var>{url}</var> and adds pictures to database.</caption>
+    <p>NOTE: This method will only be useful with Pinterest Board URLs. Returns nothing. Only intended for building DB for demo purposes.</p>
+    <h4>/search/{term}</h4>
+    <caption>Accepts a search parameter <var>{term}</var> and returns a weighted list of results</caption>
+    <p>Does not yet implement pagination. Stay tuned!</p>
+    <p>For example:</p>
+    <code>https://image-meta-logan.herokuapp.com/search/cat</code>
+    <p>will return</p>
+    <blockquote><samp>[{"url":"https://s-media-cache-ak0.pinimg.com/originals/13/95/56/139556a9446057f288acabb71e1b3da9.jpg","snippet":"www.cats photos.com | Big size cats funny cats photos","context":"https://www.pinterest.com/pin/323837029429604772/","thumbnail":"http://image-meta-logan.herokuapp.com/thumbs/19c3c9590aef53918f0e.png"},{"url":"https://s-media-cache-ak0.pinimg.com/originals/f7/fb/b4/f7fbb4979bfccf253b84a50b1bdb63cc.jpg","snippet":"cats | Funny Image Gallery: Dailymotion Funny Cats a Animals video! bonkers","context":"https://www.pinterest.com/pin/766808274024052710/","thumbnail":"http://image-meta-logan.herokuapp.com/thumbs/1f701dcc94091baa8069.png"},{"url":"https://s-media-cache-ak0.pinimg.com/originals/d3/83/70/d38370e16150d1657600aaa9c546a93d.jpg","snippet":"These pictures prove that adopting from a shelter will change these cats and dogs' lives.","context":"https://www.pinterest.com/pin/431923420498271319/","thumbnail":"http://image-meta-logan.herokuapp.com/thumbs/65f7afaf9fa5aeb9fed2.png"},{"url":"https://s-media-cache-ak0.pinimg.com/originals/74/2b/69/742b69df9847e6e05261f19e8759f31b.jpg","snippet":"These pictures prove that adopting from a shelter will change these cats and dogs' lives.","context":"https://www.pinterest.com/pin/431923420498273797/","thumbnail":"http://image-meta-logan.herokuapp.com/thumbs/8f87c8d1eb79c25566cb.png"},{"url":"https://s-media-cache-ak0.pinimg.com/originals/fb/7b/fc/fb7bfc8ccb2fa8ba32fd9dca9dae3c82.jpg","snippet":"These pictures prove that adopting from a shelter will change these cats and dogs' lives.","context":"https://www.pinterest.com/pin/431923420498276622/","thumbnail":"http://image-meta-logan.herokuapp.com/thumbs/7e7da0f1ce745eeb8e36.png"},{"url":"https://s-media-cache-ak0.pinimg.com/originals/ad/50/7a/ad507ac5266241af17b01a1504cc44ef.jpg","snippet":"Funny Kittens And Puppies | Funny Cats & Dogs 11 | Bacon Wrapped Media","context":"https://www.pinterest.com/pin/393290979929264937/","thumbnail":"http://image-meta-logan.herokuapp.com/thumbs/456a8673976e6ff9d4c1.png"},{"url":"https://s-media-cache-ak0.pinimg.com/originals/51/58/80/51588078331fb12f8ea48f6152131e52.jpg","snippet":"Funny Cat Faces I really like animals a great deal, I want one so much","context":"https://www.pinterest.com/pin/395964992217679374/","thumbnail":"http://image-meta-logan.herokuapp.com/thumbs/d4960febd66a9a9f2c88.png"},{"url":"https://s-media-cache-ak0.pinimg.com/originals/24/b1/8c/24b18c9ff7f13d835677421922fe2917.jpg","snippet":"One will supervise the cat room and the other will oversee the big dogs' care. Description from funnyclipspic.blogspot.com. I searched for this on bing.com/images","context":"https://www.pinterest.com/pin/308426274463308965/","thumbnail":"http://image-meta-logan.herokuapp.com/thumbs/a21484d67720a3a0a6d7.png"},{"url":"https://s-media-cache-ak0.pinimg.com/originals/d6/4d/0b/d64d0b0ac8e6668f7234a8a0b6e6f12e.png","snippet":"Herbie the functioning Alcoholic finally met  his match as he imagined Toddles the Cat spoke to him frequently. His job as a Customer Service Rep was quite nerve frazzling to begin with but now the. Management team hired  Frankenstein  ( actually Franklin Epstein) to actively look for errors of which he had many . not to mention he was drunk either...","context":"https://www.pinterest.com/pin/94083079695694211/","thumbnail":"http://image-meta-logan.herokuapp.com/thumbs/08ff4db7045ba7791f35.png"}]</samp></blockquote>
+    <h4>/latest</h4>
+    <caption>Returns 10 of the latest searches, ordered by their date</caption>
+    <p>For example:</p>
+    <code>https://image-meta-logan.herokuapp.com/latest</code>
+    <p>will return</p>
+    <blockquote><samp>[{"term":"lolcats","when":"2017-03-11T21:09:04.265Z"},{"term":"cat","when":"2017-03-11T21:12:04.247Z"},{"term":"trump","when":"2017-03-11T21:13:58.137Z"},{"term":"cat","when":"2017-03-11T21:14:11.023Z"},{"term":"*","when":"2017-03-11T21:14:15.128Z"},{"term":"meme","when":"2017-03-11T21:14:43.421Z"},{"term":"memes","when":"2017-03-11T21:14:46.564Z"},{"term":"dog","when":"2017-03-11T21:18:34.416Z"},{"term":"dogs","when":"2017-03-11T21:18:43.666Z"},{"term":"kitten","when":"2017-03-11T21:18:47.775Z"}]</samp></blockquote>
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#createThumb">createThumb</a></li><li><a href="global.html#deleteTmpImage">deleteTmpImage</a></li><li><a href="global.html#getImg">getImg</a></li><li><a href="global.html#getUniqueThumbName">getUniqueThumbName</a></li><li><a href="global.html#main">main</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sat Mar 11 2017 21:35:37 GMT+0000 (UTC)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
