@@ -1,0 +1,25 @@
+{
+  "name": "image-search-abstraction-layer",
+  "version": "1.0.0",
+  "description": "User can get the image URLs, alt text and page urls for a set of images relating to a given search string.",
+  "main": "app.js",
+  "scripts": {
+    "start": "mongod --dbpath ./db & node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/logandhi/image-search-abstraction-layer.git"
+  },
+  "author": "Logan Griswold",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/logandhi/image-search-abstraction-layer/issues"
+  },
+  "homepage": "https://github.com/logandhi/image-search-abstraction-layer#readme",
+  "dependencies": {
+    "crypto": "0.0.3",
+    "html-metadata": "^1.6.3",
+    "sharp": "^0.17.2"
+  }
+}
