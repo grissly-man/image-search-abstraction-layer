@@ -4,7 +4,7 @@
   "description": "User can get the image URLs, alt text and page urls for a set of images relating to a given search string.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "mongod --dbpath ./db & node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,5 +27,13 @@
     "scraper": "0.0.9",
     "sharp": "^0.17.2",
     "url": "^0.11.0"
+  },
+  "apidoc": {
+    "title": "Image Search Abstraction Layer",
+    "url": "https://image-meta-logan.herokuapp.com",
+    "header": {
+      "title": "Overview",
+      "filename": "readme.md"
+    }
   }
 }
