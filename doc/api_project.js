@@ -5,6 +5,10 @@ define({
     "title": "Overview",
     "content": "<h2>FreeCodeCamp Instructions:</h2>\n<ol>\n<li><strong>Objective:</strong> Build a full stack JavaScript app that allows you to search for images like this: <a href=\"https://cryptic-ridge-9197.herokuapp.com/api/imagesearch/lolcats%20funny?offset=10\">https://cryptic-ridge-9197.herokuapp.com/api/imagesearch/lolcats%20funny?offset=10</a> and browse recent search queries like this: <a href=\"https://cryptic-ridge-9197.herokuapp.com/api/latest/imagesearch/\">https://cryptic-ridge-9197.herokuapp.com/api/latest/imagesearch/</a>. Then deploy it to Heroku.</li>\n<li>Note that for each project, you should create a new GitHub repository and a new Heroku project. If you can't remember how to do this, revisit <a href=\"https://freecodecamp.com/challenges/get-set-for-our-api-development-projects\">https://freecodecamp.com/challenges/get-set-for-our-api-development-projects</a>.</li>\n<li>Here are the specific user stories you should implement for this project:</li>\n<li><strong>User Story:</strong> I can get the image URLs, alt text and page urls for a set of images relating to a given search string.</li>\n<li><strong>User Story:</strong> I can paginate through the responses by adding a ?offset=2 parameter to the URL.</li>\n<li><strong>User Story:</strong> I can get a list of the most recently submitted search strings.</li>\n<li>Once you've finished implementing these user stories, click the &quot;I've completed this challenge&quot; button and enter the URLs for both your GitHub repository and your live app running on Heroku.</li>\n<li>You can get feedback on your project by sharing it with your friends on Facebook.</li>\n</ol>\n<p>For more information, refer to <a href=\"https://www.freecodecamp.com/challenges/image-search-abstraction-layer\">https://www.freecodecamp.com/challenges/image-search-abstraction-layer</a>.</p>\n"
   },
+  "footer": {
+    "title": "Author",
+    "content": "<h2>Logan Griswold</h2>\n<p><a href=\"https://github.com/logandhi\">GitHub</a> | <a href=\"mailto:logan.a.griswold@gmail.com\">logan.a.griswold@gmail.com</a></p>\n"
+  },
   "name": "image-search-abstraction-layer",
   "version": "1.0.0",
   "description": "User can get the image URLs, alt text and page urls for a set of images relating to a given search string.",
@@ -13,7 +17,7 @@ define({
   "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
-    "time": "2017-03-12T19:48:13.050Z",
+    "time": "2017-03-12T20:00:33.125Z",
     "url": "http://apidocjs.com",
     "version": "0.17.5"
   }
