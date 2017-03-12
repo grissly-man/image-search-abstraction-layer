@@ -19,6 +19,8 @@ app.get('/search/:terms', function(req, res) {
         
         var images = db.collection('images');
         var searches = db.collection('searches');
+        var offset = req.query.offset || 0;
+        console.log(offset);
         
         // close db when insert and aggregation have both finished
         var count = 0;
@@ -31,8 +33,9 @@ app.get('/search/:terms', function(req, res) {
         images.aggregate([
             { $match: { $text: { $search: req.params.terms} } },
             { $project: {_id: 0, context: 1, snippet: 1, url: 1, thumbnail: 1} },
-            { $sort: {score: {$meta: "textScore"}} }
-        ]).limit(50).toArray(function(err, images) {
+            { $sort: {score: {$meta: "textScore"}} },
+            { $skip: offset * 10 }
+        ]).limit(10).toArray(function(err, images) {
             done();
             if (err) return res.status(500).json(err);
             return res.json(images);
@@ -68,16 +71,15 @@ app.get('/add/*', function(req, res) {
     var url = req.path.substr(5);
     console.log(url);
     scraper(url, function(err, metadata) {
-        if (err || !urls) {
+        if (err || !metadata.jsonLd) {
             return res.status(500).end('An error occurred');
         }
         var urls = metadata.jsonLd[0].itemListElement;
         
         async.each(urls, function(url, cb) {
-            
             scraper(url.url, function(err, metadata) {
                 if (err) {
-                    return res.status(500).end('an error occurred');
+                    return res.status(500).json(err);
                 }
                 
                 thumb(metadata.jsonLd.image, function(err, thumbName) {
@@ -105,10 +107,10 @@ app.get('/add/*', function(req, res) {
             });
         }, function(err, data) {
             if (err) {
-                return res.status(500).end('err');
+                return res.status(500).json(err);
             }
             
-            return res.status(200).json(data);
+            return res.status(200).end("Added successfully!");
         });
     });
 });
